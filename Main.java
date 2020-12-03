@@ -10,13 +10,12 @@ class Main {
     Scanner words = new Scanner(System.in);
     int value1;
     int value2;
-    int answer=0;
+    int answer = 0;
     String quitting;
-    int x=0;
+    int x = 0;
     int problemsCorrect = 0;
     int totalTries = 0;
-    System.out.println(
-        "Brush up on those times tables, kids! It's multiplication time!");
+    System.out.println("Brush up on those times tables, kids! It's multiplication time!");
     System.out.println("Would you like to play? (Q to quit)");
     String initialquitchance = words.next();
     if (initialquitchance.equalsIgnoreCase("Q")) {
@@ -26,15 +25,17 @@ class Main {
     }
 
     do {
-
+      value1 = rand.nextInt(13) + 1;
+      value2 = rand2.nextInt(13) + 1;
       do {
-        value1= rand.nextInt(13) + 1;
-        value2 = rand2.nextInt(13) + 1;
-        System.out.println("What is " + value1 + " X " + value2+"?");
-        try{
+
+        System.out.println("What is " + value1 + " X " + value2 + "?");
+        try {
           x = numbers.nextInt();
-        answer = value1 * value2;
-        }catch (java.util.InputMismatchException e) {continue;}
+          answer = value1 * value2;
+        } catch (java.util.InputMismatchException e) {
+          continue;
+        }
         if (x == answer) {
           System.out.println("Correct!");
           problemsCorrect++;
@@ -46,5 +47,6 @@ class Main {
       System.out.println("Would you like to play again? (Q to quit)");
       quitting = words.next();
     } while (!quitting.equalsIgnoreCase("Q"));
+    System.out.println("You got " + problemsCorrect + " problems correct in " + totalTries + " attempts. ");
   }
 }
